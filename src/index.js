@@ -1,5 +1,16 @@
-const appRoot = require("app-root-path");
-const packageJson = require(appRoot.resolve("package.json"));
+#!/usr/bin/env node
+
+"use strict";
+
+const packageJson = require(process.cwd() + "/package.json");
+
+// Check config has been provided
+if (!packageJson.gitMerger) {
+  console.log(`Couldn't find the gitMerger config. Check your package.json.
+Documentation: https://github.com/cliener/Git-Merger`);
+  return;
+}
+
 const config = packageJson.gitMerger;
 const { execSync } = require("child_process");
 const GitHubApi = require("github");

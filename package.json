@@ -1,6 +1,6 @@
 {
   "name": "@cliener/git-merger",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Automate merging of GitHub branches",
   "main": "src/index.js",
   "scripts": {
@@ -30,6 +30,6 @@
   },
   "gitMerger": {
     "owner": "cliener",
-    "repo": "Git-Merger",
+    "repo": "Git-Merger"
   }
 }

@@ -14,7 +14,7 @@ Add the repo details to your package.json:
 ```
   "gitMerger": {
     "owner": "cliener",
-    "repo": "Git-Merger",
+    "repo": "Git-Merger"
   }
 ```
 
