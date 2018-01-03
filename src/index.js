@@ -12,7 +12,7 @@ Documentation: https://github.com/cliener/Git-Merger`);
 }
 
 const config = packageJson.gitMerger;
-const { execSync } = require("child_process");
+const { exec } = require("child_process");
 const GitHubApi = require("github");
 
 const handleCommandLine = (err, stdout, stderr) => {
@@ -40,7 +40,7 @@ const github = new GitHubApi({
   host: "api.github.com",
   protocol: "https",
   rejectUnauthorized: false,
-  debug: true,
+  debug: true
 });
 
 console.log("Connected");
@@ -48,25 +48,39 @@ console.log("Connected");
 console.log(`Merging from ${fromBranch} to ${toBranch}`);
 
 // Create Changelog
-execSync(`git log --oneline --format='%h %d %s (%cr) %an <%ae> on %cd' --abbrev-commit --date=relative --no-merges ${toBranch} ..${fromBranch} > changelog.txt`, 
-  handleCommandLine);
+exec(
+  `git log --oneline --format='%h %d %s (%cr) %an <%ae> on %cd' --abbrev-commit --date=relative --no-merges ${
+    toBranch
+  } ..${fromBranch} > changelog.txt`,
+  handleCommandLine
+);
 console.log("Created changelog.txt");
 
-// List of people making changes 
-execSync(`git log --oneline --format='%an' --abbrev-commit --date=relative --no-merges ${toBranch}..${fromBranch} | sort -u > authors.txt`,
-  handleCommandLine);
+// List of people making changes
+exec(
+  `git log --oneline --format='%an' --abbrev-commit --date=relative --no-merges ${
+    toBranch
+  }..${fromBranch} | sort -u > authors.txt`,
+  handleCommandLine
+);
 console.log("Created authors.txt");
 
 // Modified files by commit
-execSync(`git log --name-only --pretty=short --graph ${toBranch}..${fromBranch} > files.txt`,
-  handleCommandLine);
+exec(
+  `git log --name-only --pretty=short --graph ${toBranch}..${
+    fromBranch
+  } > files.txt`,
+  handleCommandLine
+);
 console.log("Created files.txt");
 
-console.log("1. Check the list of authors in authors.txt and plan a merge with everyone present. Add each of them as reviewers.");
+console.log(
+  "1. Check the list of authors in authors.txt and plan a merge with everyone present. Add each of them as reviewers."
+);
 
 console.log(`2. Create branch Chores/Merge_${fromBranch}_to_${toBranch}`);
 
-/* 
+/*
 // Attempt to create a branch via the GitHub API
 // Paused because the API is unfriendly and documentation unhelpful
 // Meanwhile: https://stackoverflow.com/questions/9506181/github-api-create-branch
@@ -95,7 +109,6 @@ github.repos.getBranch({
   );
 })*/
 
-
 console.log("3. Initialise merge:");
 console.log(`git merge --no-ff ${fromBranch}`);
-//execSync(`git merge --no-ff ${fromBranch}`, handleCommandLine);
+//exec(`git merge --no-ff ${fromBranch}`, handleCommandLine);

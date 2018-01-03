@@ -13,11 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/cliener/Git-Merger.git"
   },
-  "keywords": [
-    "github",
-    "branch",
-    "merge"
-  ],
+  "keywords": ["github", "branch", "merge"],
   "author": "Chris Lienert",
   "license": "MIT",
   "bugs": {
@@ -25,7 +21,6 @@
   },
   "homepage": "https://github.com/cliener/Git-Merger#readme",
   "dependencies": {
-    "app-root-path": "^2.0.1",
     "github": "^13.0.1"
   },
   "gitMerger": {
