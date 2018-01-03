@@ -1,5 +1,7 @@
 # Git-Merger
 
+[![npm version](https://badge.fury.io/js/%40cliener%2Fgit-merger.svg)](https://badge.fury.io/js/%40cliener%2Fgit-merger)
+
 Automates creation of diff changelog, authors and files in preparation for a merge.
 
 ## Installation
