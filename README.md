@@ -2,7 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/%40cliener%2Fgit-merger.svg)](https://badge.fury.io/js/%40cliener%2Fgit-merger)
 
-Automates creation of diff changelog, authors and files in preparation for a merge.
+Automates creation of diff changelog, authors and files in preparation for a
+merge.
 
 ## Installation
 
@@ -13,6 +14,7 @@ $ npm i -g @cliener/git-merger
 ## Configuration
 
 Add the repo details to your package.json:
+
 ```
   "gitMerger": {
     "owner": "cliener",
@@ -23,11 +25,13 @@ Add the repo details to your package.json:
 ## Usage
 
 ```
-git-merger {from branch} {to branch}
+git-merger --from=master --to=newBranch
 ```
-e.g.
+
+## Help
+
 ```
-git-merger master newBranch
+git-merger -h
 ```
 
 ## Wish list
