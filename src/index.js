@@ -2,7 +2,7 @@
 
 "use strict";
 
-const { gitMerger, ...packageJSON } = require("../package.json");
+const { gitMerger, ...packageJSON } = require(process.cwd() + "/package.json");
 // Check config has been provided
 if (!gitMerger) {
   console.log(`Couldn't find the gitMerger config. Check your package.json.
