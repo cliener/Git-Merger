@@ -125,6 +125,7 @@ console.log("Connected");
 console.log(`Merging from ${fromBranch} to ${toBranch}`);
 
 // Create Changelog
+/* Dragons ahead - or worse exec() uses DOS shell */
 execWithDebug(
   `git log --oneline --format="%h %d %s (%cr) %an <%ae> on %cd" --abbrev-commit --date=relative --no-merges ${
     toBranch
@@ -135,9 +136,8 @@ execWithDebug(
 );
 
 // List of people making changes
-/* Dragons ahead - or worse exec() uses DOS shell */
 execWithDebug(
-  `git log --oneline --format='%an --abbrev-commit --date=relative --no-merges ${
+  `git log --oneline --format='%an' --abbrev-commit --date=relative --no-merges ${
     toBranch
   }..${fromBranch} | sort ${isWin ? "" : "-u"} > authors.txt`,
   createExecCallback({
