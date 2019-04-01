@@ -25,8 +25,8 @@
   },
   "homepage": "https://github.com/cliener/Git-Merger#readme",
   "dependencies": {
-    "github": "^13.0.1",
-    "yargs": "^10.0.3"
+    "github": "^14.0.0",
+    "yargs": "^13.2.2"
   },
   "gitMerger": {
     "owner": "cliener",
